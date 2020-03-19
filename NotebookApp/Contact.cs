@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Text.RegularExpressions;
 
@@ -6,6 +7,18 @@ namespace NotebookApp
 {
     class Contact
     {
+        internal static Dictionary<int, string> fields = new Dictionary<int, string>()
+        {
+            {1, "Фамилия" },
+            {2, "Имя" },
+            {3, "Отчество" },
+            {4, "Номер" },
+            {5, "Страна" },
+            {6, "Дата рождения" },
+            {7, "Организация" },
+            {8, "Должность" },
+            {9, "Заметки" },
+        };
         private static int count;
         private int id;
         private string lastname;
@@ -16,7 +29,7 @@ namespace NotebookApp
         private string organisation;
         private string position;
         private string other;
-        public int Id { get { return id; } set { id = count++; } }
+        public int Id { get { return id; } set { id = ++count; } }
         public string Firstname
         {
             get { return firstname; }
@@ -75,6 +88,19 @@ namespace NotebookApp
         public Contact()
         {
             Id += Id;
+        }
+        public Contact(List<string> datas)
+        {
+            Id += Id;
+            Lastname = datas[0];
+            Firstname = datas[1];
+            Midname = datas[2];
+            Phonenumber = datas[3];
+            Country = datas[4];
+            Birthdate = DateTime.Parse(datas[5]);
+            Organisation = datas[6];
+            Position = datas[7];
+            Other = datas[8];
         }
         public override string ToString()
         {

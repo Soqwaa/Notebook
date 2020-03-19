@@ -8,22 +8,21 @@ namespace NotebookApp.Controllers
         public static void Menu()
         {
             MainMenuView.Show();
-            bool flag = true;
-            while (flag)
+            while (true)
             {
                 switch (Console.ReadKey().Key)
                 {
                     case ConsoleKey.D1:
-                        //CreateContact(contacts);
+                        CreateContactController.CreateContact();
                         break;
                     case ConsoleKey.NumPad1:
-                        //CreateContact(contacts);
+                        CreateContactController.CreateContact();
                         break;
                     case ConsoleKey.D2:
-                        SearchContactController.SearchContact();
+                        ContactsController.Contacts(SearchContactView.Show().Trim().Split(' '));
                         break;
                     case ConsoleKey.NumPad2:
-                        SearchContactController.SearchContact();
+                        ContactsController.Contacts(SearchContactView.Show().Trim().Split(' '));
                         break;
                     case ConsoleKey.D3:
                         ContactsController.Contacts();

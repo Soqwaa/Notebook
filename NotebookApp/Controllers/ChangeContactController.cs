@@ -1,10 +1,6 @@
 ﻿using NotebookApp.Models;
 using NotebookApp.Views;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NotebookApp.Controllers
 {
@@ -67,7 +63,7 @@ namespace NotebookApp.Controllers
                         break;
                 }              
             }
-            ChangeContactView.ChangeContact(brake ? false : true);
+            ChangeContactView.ChangeContactStatus(brake ? false : true);
             Console.ReadKey();
             DetailContactController.DetailContact(newContact);
         }

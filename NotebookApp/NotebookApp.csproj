@@ -46,15 +46,16 @@
     <Compile Include="Contact.cs" />
     <Compile Include="Controllers\ChangeContactController.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
+    <Compile Include="Controllers\CreateContactController.cs" />
     <Compile Include="Controllers\DetailContactController.cs" />
     <Compile Include="Controllers\MainMenuController.cs" />
-    <Compile Include="Controllers\SearchContactController.cs" />
     <Compile Include="DefaultContacts.cs" />
     <Compile Include="Models\Model.cs" />
     <Compile Include="Notebook.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\ChangeContactView.cs" />
     <Compile Include="Views\ContactsView.cs" />
+    <Compile Include="Views\CreateContactView.cs" />
     <Compile Include="Views\DetailContactView.cs" />
     <Compile Include="Views\MainMenuView.cs" />
     <Compile Include="Views\Page.cs" />

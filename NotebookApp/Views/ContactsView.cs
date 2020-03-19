@@ -6,7 +6,7 @@ namespace NotebookApp.Views
 {
     class ContactsView : Page
     {
-        public static void Show(List<Contact> contacts)
+        public static int Show(List<Contact> contacts)
         {
             int contactsCount = contacts.Count;
             Title($"Контакты ({contactsCount})");
@@ -21,23 +21,36 @@ namespace NotebookApp.Views
                 foreach (Contact contact in contacts)
                 {
                     line += 1;
-                    ColoredWrite(   $"{line}.{new String(' ', contactsCount.ToString().Length - line.ToString().Length + 1)}" +
+                    ColoredWrite($"{line}.{new String(' ', contactsCount.ToString().Length - line.ToString().Length + 1)}" +
                                     $"{contact.Lastname}{new String(' ', largestLastname - contact.Lastname.Length)} | " +
                                     $"{contact.Firstname}{new String(' ', largestFirstname - contact.Firstname.Length)} | " +
                                     $"{contact.Phonenumber}{new String(' ', largestPhonenumber - contact.Phonenumber.Length)} | ");
                     ColoredWrite(delim, ConsoleColor.DarkGray);
                 }
-                ColoredWrite(delim, ConsoleColor.Blue);
-                ColoredWrite("№ строки - переход к карточке контакта");
-                ColoredWrite("Enter - возврат в главное меню\n");
+                ColoredWrite(delim, ConsoleColor.Cyan);
+                ColoredWrite("№ строки - переход к карточке контакта", ConsoleColor.Cyan);
+                ColoredWrite("Enter - возврат в главное меню\n", ConsoleColor.Cyan);
             }
             else
             {
                 ColoredWrite("Контакты не найдены", ConsoleColor.Red);
-                ColoredWrite(delimiter40, ConsoleColor.Blue);
-                ColoredWrite("Enter - возврат в главное меню\n");
+                ColoredWrite(delimiter40, ConsoleColor.Cyan);
+                ColoredWrite("Enter - возврат в главное меню\n", ConsoleColor.Cyan);
             }
-            
+
+            int contactNumber;
+            while (int.TryParse(Console.ReadLine().Trim(), out contactNumber))
+            {
+                if (contactNumber > 0 && contactNumber <= contactsCount)
+                {
+                    return contactNumber;
+                }
+                else
+                {
+                    ErrorMessage(1);
+                }
+            }
+            return 0;
         }
     }
 }

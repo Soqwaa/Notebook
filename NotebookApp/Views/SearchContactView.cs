@@ -8,10 +8,11 @@ namespace NotebookApp.Views
 {
     class SearchContactView : Page
     {
-        public static void Show()
+        public static string Show()
         {
             Title("Поиск контакта");
-            ColoredWrite("Введите строку для поиска и нажмите Enter");
+            ColoredWrite("Введите строку для поиска и нажмите Enter.\nВы можете ввести несколько критериев для поиска, разделив их запятыми", ConsoleColor.Cyan);
+            return Console.ReadLine();
         }
     }
 }

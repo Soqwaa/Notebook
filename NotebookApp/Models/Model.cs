@@ -62,24 +62,41 @@ namespace NotebookApp.Models
             catch { return false; }
             return true;
         }
-        public static void AddContact()
+        public static Contact CreateContact(List<string> datas, out bool status)
         {
-
+            Contact newContact;
+            try
+            {
+                newContact = new Contact(datas);
+                contacts.Add(newContact);
+                status = true;
+            }
+            catch { status = false; throw;  }
+            return newContact;
         }
-        public static List<Contact> GetContacts(string exression)
+        public static List<Contact> GetContacts(string[] expression)
         {
-            DateTime date;
-            bool isDate = DateTime.TryParse(exression, out date);
+            List<Contact> result = contacts.ToList();
+            if (expression != null)
+            {
+                foreach (string criteria in expression)
+                {
+                    DateTime date;
+                    bool isDate = DateTime.TryParse(criteria, out date);
 
-            return contacts.Where(con =>  isDate ? con.Birthdate == date : false |
-                                          con.Birthdate.ToString().Contains(exression) |
-                                          con.Country.Contains(exression) |
-                                          con.Firstname.Contains(exression) |
-                                          con.Lastname.Contains(exression) |
-                                          con.Midname.Contains(exression) |
-                                          con.Organisation.Contains(exression) |
-                                          con.Phonenumber.Contains(exression) |
-                                          con.Position.Contains(exression)).OrderBy(con => con.Lastname).ThenBy(con => con.Firstname).ToList();
+                    result = result.Intersect(result.Where(con => isDate ? con.Birthdate == date : false |
+                                                  con.Birthdate.ToString().Contains(criteria) |
+                                                  con.Country.ToLower().Contains(criteria.ToLower()) |
+                                                  con.Firstname.ToLower().Contains(criteria.ToLower()) |
+                                                  con.Lastname.ToLower().Contains(criteria.ToLower()) |
+                                                  con.Midname.ToLower().Contains(criteria.ToLower()) |
+                                                  con.Organisation.ToLower().Contains(criteria.ToLower()) |
+                                                  con.Phonenumber.ToLower().Contains(criteria.ToLower()) |
+                                                  con.Position.ToLower().Contains(criteria.ToLower()) |
+                                                  con.Other.ToLower().Contains(criteria.ToLower()))).ToList();
+                }
+            }
+            return result.Distinct().OrderBy(con => con.Lastname).ThenBy(con => con.Firstname).ToList();
         }
     }
 }
