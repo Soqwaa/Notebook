@@ -28,7 +28,7 @@ namespace NotebookApp.Views
                     ColoredWrite(delim, ConsoleColor.DarkGray);
                 }
                 ColoredWrite(delim, ConsoleColor.Cyan);
-                ColoredWrite("№ строки - переход к карточке контакта", ConsoleColor.Cyan);
+                ColoredWrite("Введите номер строки контакта и нажмите Enter для перехода к карточке контакта", ConsoleColor.Cyan);
                 ColoredWrite("Enter - возврат в главное меню\n", ConsoleColor.Cyan);
             }
             else
