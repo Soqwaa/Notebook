@@ -53,6 +53,42 @@ namespace NotebookApp.Controllers
                         newContact = TryChangeContact(oldContact, 9);
                         flag = newContact == null ? true : false;
                         break;
+                    case ConsoleKey.NumPad1:
+                        newContact = TryChangeContact(oldContact, 1);
+                        flag = newContact == null ? true : false;
+                        break;
+                    case ConsoleKey.NumPad2:
+                        newContact = TryChangeContact(oldContact, 2);
+                        flag = newContact == null ? true : false;
+                        break;
+                    case ConsoleKey.NumPad3:
+                        newContact = TryChangeContact(oldContact, 3);
+                        flag = newContact == null ? true : false;
+                        break;
+                    case ConsoleKey.NumPad4:
+                        newContact = TryChangeContact(oldContact, 4);
+                        flag = newContact == null ? true : false;
+                        break;
+                    case ConsoleKey.NumPad5:
+                        newContact = TryChangeContact(oldContact, 5);
+                        flag = newContact == null ? true : false;
+                        break;
+                    case ConsoleKey.NumPad6:
+                        newContact = TryChangeContact(oldContact, 6);
+                        flag = newContact == null ? true : false;
+                        break;
+                    case ConsoleKey.NumPad7:
+                        newContact = TryChangeContact(oldContact, 7);
+                        flag = newContact == null ? true : false;
+                        break;
+                    case ConsoleKey.NumPad8:
+                        newContact = TryChangeContact(oldContact, 8);
+                        flag = newContact == null ? true : false;
+                        break;
+                    case ConsoleKey.NumPad9:
+                        newContact = TryChangeContact(oldContact, 9);
+                        flag = newContact == null ? true : false;
+                        break;
                     case ConsoleKey.Escape:
                         flag = false;
                         newContact = oldContact;

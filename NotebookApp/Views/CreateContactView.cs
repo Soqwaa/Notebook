@@ -36,11 +36,11 @@ namespace NotebookApp.Views
                 switch (step)
                 {
                     case 1:
-                        if (GetField(datas, @"^[a-zA-Zа-яА-ЯёЁ]+$", "может содержать только буквы, обязательно для заполнения", step))
+                        if (GetField(datas, @"^[a-zA-Zа-яА-ЯёЁ]+$", "может содержать только буквы\n*обязательно для заполнения", step))
                             step++;
                         break;
                     case 2:
-                        if (GetField(datas, @"^[a-zA-Zа-яА-ЯёЁ]+$", "может содержать только буквы, обязательно для заполнения", step))
+                        if (GetField(datas, @"^[a-zA-Zа-яА-ЯёЁ]+$", "может содержать только буквы\n*обязательно для заполнения", step))
                             step++;
                         break;
                     case 3:
@@ -48,11 +48,11 @@ namespace NotebookApp.Views
                             step++;
                         break;
                     case 4:
-                        if (GetField(datas, @"^[0-9]+$", "может содержать только цифры без пробелов, обязательно для заполнения", step))
+                        if (GetField(datas, @"^[0-9]+$", "может содержать только цифры без пробелов\n*обязательно для заполнения", step))
                             step++;
                         break;
                     case 5:
-                        if (GetField(datas, @"^([a-zA-Zа-яА-Я]+[ ]?)+$", "может содержать только буквы, обязательно для заполнения", step))
+                        if (GetField(datas, @"^([a-zA-Zа-яА-Я]+[ ]?)+$", "может содержать только буквы\n*обязательно для заполнения", step))
                             step++;
                         break;
                     case 6:
@@ -64,7 +64,7 @@ namespace NotebookApp.Views
                             datas.Add(stepInput);
                             step++;
                         }
-                        else { ErrorMessage("Неверный формат даты рождения. Попробуйте ввести дату рождения в формате ДД.ММ.ГГГГ"); }
+                        else { ErrorMessage("Неверный формат даты.\nПопробуйте ввести дату рождения в формате ДД.ММ.ГГГГ"); }
                         break;
                     case 7:
                         ColoredWrite("Введите организацию: ", ConsoleColor.Cyan, false);

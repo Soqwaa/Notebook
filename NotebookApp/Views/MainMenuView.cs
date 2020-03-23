@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-
-namespace NotebookApp.Views
+﻿namespace NotebookApp.Views
 {
     class MainMenuView : Page
     {
